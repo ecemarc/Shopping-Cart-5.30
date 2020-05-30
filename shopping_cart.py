@@ -43,7 +43,7 @@ def to_usd(my_price):
 #INFORMATION COLLECT
 #
 
-
+total_price = 0
 
 while True:
     selected_id = input("Please insert a product indifier:")  #string version of the inputl
@@ -52,7 +52,12 @@ while True:
     else:
         matching_products = [p for p in products if str(p["id"]) == str(selected_id)] #use selected id to identify the item
         matching_product = matching_products [0] # get the first item
+        total_price = total_price + matching_product["price"]
         print("SELECTED PRODUCT: "+ matching_product ["name"] + " " + str(matching_product ["price"]))
+
+
+
+print("TOTAL PRICE: " + str(total_price)) #convert the total_price to string to concatinate.\
     
 
 # print(type(matching_product))
