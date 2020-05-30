@@ -44,15 +44,20 @@ def to_usd(my_price):
 #
 
 
-selected_id = input("Please insert a product indifier:")  #string version of the inputl
-matching_products = [p for p in products if str(p["id"]) == str(selected_id)] #use selected id to identify the item
-matching_product = matching_products [0] # get the first item
 
-print("SELECTED PRODUCT: "+ matching_product ["name"] + " " + str(matching_product ["price"]))
+while True:
+    selected_id = input("Please insert a product indifier:")  #string version of the inputl
+    if selected_id=="DONE":     #this has to be here so if can continue if not done.
+        break
+    else:
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)] #use selected id to identify the item
+        matching_product = matching_products [0] # get the first item
+        print("SELECTED PRODUCT: "+ matching_product ["name"] + " " + str(matching_product ["price"]))
+    
 
-print(type(matching_product))
+# print(type(matching_product))
 
-print(type(selected_id))
+# print(type(selected_id))
 #
 #dDISPLAY
 #
