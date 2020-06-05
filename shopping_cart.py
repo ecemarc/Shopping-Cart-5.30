@@ -80,7 +80,7 @@ print("                                            CORONA-FREE DELI             
 print("                                  888 Hope Avenue, Manhattan, NY 88888                                      ")
 print("                                       www.corona_free_deli.com                                             ")
 
-print("                                       Visit Date and Time:                                            ")
+print("                                          Visit Date and Time:                                            ")
 print("                                          " +
       now.strftime("%Y-%m-%d %H:%M:%S"))
 
