@@ -65,31 +65,87 @@ selected_product = []
 
 while True:
     selected_id = input("Please enter your product: ")
-    if selected_id == "DONE" or selected_id == "done":
+    if selected_id == "DONE" or selected_id == "done":  # exiting when DONE
         break
     else:
-        selected_product.append(selected_id)
+        selected_product.append(selected_id)  # Collecting the items in a list
 
 now = datetime.datetime.now()
 
 
-print("            CORONA-FREE DELI            ")
-print("    888 Hope Avenue, Manhattan, NY 88888 ")
+print("************************************************************************************************************")
 
-print("Current date and time: ")
-print(now.strftime("%Y-%m-%d %H:%M:%S"))
+
+print("                                            CORONA-FREE DELI                                                ")
+print("                                  888 Hope Avenue, Manhattan, NY 88888                                      ")
+print("                                       www.corona_free_deli.com                                             ")
+
+print("                                       Visit Date and Time:                                            ")
+print("                                          " +
+      now.strftime("%Y-%m-%d %H:%M:%S"))
+
+print("************************************************************************************************************")
+print("************************************************************************************************************")
 
 
 for selected_id in selected_product:
-    matching_ids = [p for p in products if str(p["id"]) == str(selected_id)]
-    matching_id = matching_ids[0]
+    matching_ids = [p for p in products if str(p["id"]) == str(
+        selected_id)]  # look up for selected product
+    matching_id = matching_ids[0]  # first one on the list
     total_price = total_price + matching_id["price"]
-    print("Selected Product: " +
-          matching_id["name"] + " " + "$" + str(matching_id["price"]))
+    print(" ------" + "Yours Now :) --> " +
+          matching_id["name"] + " " + "(" + "$" + str(matching_id["price"]) + ")")
+
+print("************************************************************************************************************")
 
 
 def to_usd(total_price):
     return f"${total_price:,.2f}"  # > $12,000.71
 
 
-print("Total Price" + "              " + to_usd(total_price))
+print(" ------SUBTOTAL: " + "        " + to_usd(total_price))
+
+
+def tax(total_price):
+    return total_price*0.0875
+
+
+x = tax(total_price)
+
+
+def t_to_usdd(x):
+    return f"${x:,.2f}"
+
+
+print(" ------TAX: " + "             " + t_to_usdd(x))
+
+
+def total_w_tax(total_price):
+    return (total_price*1.0875)-1
+
+
+t = total_w_tax(total_price)
+
+
+def to_usdd(t):
+    return f"${t:,.2f}"
+
+
+smile_disc = 1
+
+
+def discount(smile_disc):
+    return f"${smile_disc:,.2f}"  # > $12,000.71
+
+
+print(" ------SMILE DISCOUNT:" + "   " + discount(smile_disc))
+
+
+print(" ------TOTAL:" + "            " + to_usdd(t))
+
+
+print("************************************************************************************************************")
+print("************************************************************************************************************")
+
+
+print("****************************THANKS FOR VISITING FRIEND, YOU MADE OUR DAY!***********************************'")
