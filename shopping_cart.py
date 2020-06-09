@@ -60,15 +60,24 @@ products = [
 
 # print(products)
 
+
 total_price = 0
 selected_product = []
+valid_id = []
+
+for p in products:
+    valid_id.append(str(p["id"]))
+
 
 while True:
     selected_id = input("Please enter your product: ")
-    if selected_id == "DONE" or selected_id == "done":  # exiting when DONE
+    if selected_id == "DONE" or selected_id == "done" or selected_id == "Done":  # exiting when DONE
         break
-    else:
+    elif selected_id not in valid_id:
+        print("You selected an invalid id, please re-enter")
+    elif selected_id in valid_id:
         selected_product.append(selected_id)  # Collecting the items in a list
+
 
 now = datetime.datetime.now()
 
